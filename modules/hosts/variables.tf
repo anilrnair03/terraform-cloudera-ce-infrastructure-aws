@@ -105,3 +105,9 @@ variable "volumes" {
 
   description = "Additional storage volumes to attach to the hosts. Each volume is defined by a device name, mount point, size, type, and optional tags."
 }
+
+variable "pricing_license_model" {
+  type        = string
+  description = "License model for pricing calculation. Common values: 'Bring your own license', 'No License required'. Set to null to skip this filter."
+  default     = null
+}

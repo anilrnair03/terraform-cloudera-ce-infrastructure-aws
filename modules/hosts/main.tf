@@ -98,6 +98,14 @@ data "aws_pricing_product" "pvc_base" {
     value = local.pricing_os_map[data.aws_ami.pvc_base.platform_details]
   }
 
+  dynamic "filters" {
+    for_each = var.pricing_license_model != null ? [1] : []
+    content {
+      field = "licenseModel"
+      value = var.pricing_license_model
+    }
+  }
+
   # filters {
   #     field = "processorArchitecture"
   #     value = local.pricing_arch_map[data.aws_ami.pvc_base.architecture]
