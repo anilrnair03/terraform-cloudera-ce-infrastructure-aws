@@ -34,7 +34,7 @@ locals {
     "Red Hat BYOL Linux"       = "RHEL",
     "Ubuntu"                   = "Linux"
     "Linux/UNIX"               = "Linux"
-    # "Windows"                  = "Windows"
+    "Windows"                  = "Windows"
   }
   # pricing_arch_map = {
   #   "x86_64" = "64-bit"
