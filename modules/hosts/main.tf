@@ -74,6 +74,10 @@ resource "aws_instance" "pvc_base" {
   tags = merge(var.tags, {
     Name = var.quantity == 0 ? var.name : format("%s-%02d", var.name, count.index + var.offset + 1)
   })
+
+  get_password_data           = var.instance_get_password_data
+  user_data                   = var.instance_user_data
+  user_data_replace_on_change = var.instance_replace_on_user_data_change
 }
 
 data "aws_pricing_product" "pvc_base" {
