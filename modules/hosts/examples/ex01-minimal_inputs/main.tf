@@ -19,11 +19,6 @@ provider "aws" {
   }
 }
 
-provider "aws" {
-  alias  = "cost_calculator"
-  region = "us-east-1"
-}
-
 # ------- VPC -------
 
 resource "aws_vpc" "ex01" {
@@ -83,10 +78,6 @@ resource "aws_vpc_security_group_ingress_rule" "ssh" {
 module "ex01_hosts" {
   source     = "../.."
   depends_on = [aws_key_pair.ex01, data.aws_ami.ex01]
-  providers = {
-    aws                    = aws
-    aws.pricing_calculator = aws.cost_calculator
-  }
 
   name          = "${var.prefix}-host"
   quantity      = 2
